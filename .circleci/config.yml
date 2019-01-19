@@ -90,9 +90,8 @@ jobs:
           name: Build Slurm docker image 
           command: |
             cd ./slurm
-            ./start-pbs.sh
-            cd - 
-            docker exec -it -u pbsuser pbs_master pbsnodes -a
+            ./start-slurm.sh
+            cd -
             docker ps -a
             docker images
 
