@@ -40,6 +40,15 @@ jobs:
           command: |
             docker version
             docker-compose version
-
+      
+      - run:
+          name: Build PBS docker image 
+          command: |
+            cd ./pbs
+            ./start-pbs.sh
+            cd - 
+            docker exec -it -u pbsuser pbs_master pbsnodes -a
+            docker ps -a
+            docker images
 
      
